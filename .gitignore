@@ -5,3 +5,7 @@
 # Env File
 
 .env
+
+# NodeJS
+
+/node_modules/
