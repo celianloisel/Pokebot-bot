@@ -4,10 +4,10 @@ require("dotenv").config()
 
 const client = new Client({intents: 1});
 
-client.once(Events.ClientReady, c => {
-    Logger.info(`Ready! Logged in as ${c.user.tag}`)
+["EventHandler"].forEach((handler) => {
+    require(`./utils/handlers/${handler}`)(client);
 });
 
 client.login(process.env.BOT_TOKEN).catch(error => {
-    Logger.error(`An error occurred while logging in:\n    ${error}`)
+    Logger.error(`An error occurred while logging in:\nError -> ${error}`)
 });
